@@ -1,0 +1,23 @@
+{
+    "translation": {
+        "welcome": "Welcome to Hogwarts Messenger",
+        "login_btn": "Login",
+        "signup_btn": "Sign Up",
+        "email_placeholder": "Owl Address (Email)",
+        "password_placeholder": "Secret Spell (Password)",
+        "name_placeholder": "Wizard Name",
+        "sorting_hat_title": "The Sorting Hat asks...",
+        "sorting_result": "BETTER BE... {{house}}!",
+        "common_room": "{{house}} Common Room",
+        "send_msg_placeholder": "Send a magical message...",
+        "send_btn": "Send",
+        "logout": "Log Output",
+        "profile": "Wizarding Passport",
+        "wand": "Wand",
+        "owl_post": "Owl Post",
+        "open_mail": "Open Mail",
+        "enter_chat": "Enter Chat",
+        "daily_prophet": "The Daily Prophet",
+        "read_btn": "Read"
+    }
+}

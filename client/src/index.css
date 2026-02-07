@@ -1,0 +1,162 @@
+/* =========================================================
+   GLOBAL DESIGN SYSTEM — WIZARDING WORLD
+========================================================= */
+:root {
+  /* ===============================
+     CORE HOGWARTS ATMOSPHERE
+  =============================== */
+  --hogwarts-bg: #0b0e1a;            /* Deep night blue-black */
+  --hogwarts-bg-soft: #15182b;       /* Elevated surfaces */
+  --hogwarts-dark: #07080f;           /* True dark */
+  --hogwarts-text: #f3f3f3;
+  --hogwarts-text-muted: rgba(243,243,243,0.65);
+
+  /* Signature Gold */
+  --hogwarts-gold: #d4af37;
+  --hogwarts-gold-soft: #e6c97a;
+  --hogwarts-gold-dark: #a8822c;
+
+  /* Accents */
+  --accent-glow: 0 0 18px rgba(212,175,55,0.45);
+
+  /* ===============================
+     HOUSE PALETTES
+  =============================== */
+
+  /* Gryffindor — Courage */
+  --gryffindor-primary: #740001;
+  --gryffindor-secondary: #eeba30;
+  --gryffindor-glow: rgba(238,186,48,0.45);
+
+  /* Slytherin — Ambition */
+  --slytherin-primary: #1a472a;
+  --slytherin-secondary: #c0c0c0;
+  --slytherin-glow: rgba(26,71,42,0.45);
+
+  /* Ravenclaw — Wisdom */
+  --ravenclaw-primary: #0e1a40;
+  --ravenclaw-secondary: #946b2d;
+  --ravenclaw-glow: rgba(148,107,45,0.45);
+
+  /* Hufflepuff — Loyalty */
+  --hufflepuff-primary: #ecb939;
+  --hufflepuff-secondary: #372e29;
+  --hufflepuff-glow: rgba(236,185,57,0.45);
+
+  /* ===============================
+     PARCHMENT UI
+  =============================== */
+  --parchment-bg: #f8f5e6;
+  --parchment-bg-soft: #f1ead6;
+  --parchment-text: #3e3e3e;
+  --parchment-shadow: inset 0 0 45px rgba(139,69,19,0.25);
+
+  /* ===============================
+     ROMANTIC THEME
+  =============================== */
+  --romantic-primary: #c2185b;
+  --romantic-secondary: #f8bbd0;
+  --romantic-bg: #fff0f5;
+  --romantic-text: #6a0f3b;
+  --romantic-glow: rgba(194,24,91,0.4);
+
+  /* ===============================
+     TYPOGRAPHY
+  =============================== */
+  --font-main: 'Cinzel', serif;
+  --font-body: 'Lato', sans-serif;
+  --letter-spacing-wide: 2px;
+
+  /* ===============================
+     MOTION & EFFECTS
+  =============================== */
+  --transition-fast: 0.2s ease;
+  --transition-base: 0.35s ease;
+  --transition-slow: 0.6s ease;
+
+  --shadow-soft: 0 10px 30px rgba(0,0,0,0.4);
+  --shadow-deep: 0 25px 60px rgba(0,0,0,0.6);
+}
+
+/* =========================================================
+   BODY BASE
+========================================================= */
+body {
+  margin: 0;
+  background-color: var(--hogwarts-bg);
+  color: var(--hogwarts-text);
+  font-family: var(--font-body);
+  transition:
+    background-color var(--transition-base),
+    color var(--transition-base);
+}
+
+/* =========================================================
+   HEADINGS
+========================================================= */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-main);
+  color: var(--hogwarts-gold);
+  letter-spacing: var(--letter-spacing-wide);
+}
+
+/* =========================================================
+   THEMES — BODY MODIFIERS
+========================================================= */
+
+/* Romantic */
+body.Romantic {
+  background-color: var(--romantic-bg);
+  color: var(--romantic-text);
+
+  --hogwarts-gold: var(--romantic-primary);
+  --hogwarts-bg: var(--romantic-bg);
+  --parchment-bg: #fff5fa;
+  --accent-glow: var(--romantic-glow);
+}
+
+/* Houses */
+body.Gryffindor {
+  --active-primary: var(--gryffindor-primary);
+  --active-secondary: var(--gryffindor-secondary);
+  --accent-glow: var(--gryffindor-glow);
+}
+
+body.Slytherin {
+  --active-primary: var(--slytherin-primary);
+  --active-secondary: var(--slytherin-secondary);
+  --accent-glow: var(--slytherin-glow);
+}
+
+body.Ravenclaw {
+  --active-primary: var(--ravenclaw-primary);
+  --active-secondary: var(--ravenclaw-secondary);
+  --accent-glow: var(--ravenclaw-glow);
+}
+
+body.Hufflepuff {
+  --active-primary: var(--hufflepuff-primary);
+  --active-secondary: var(--hufflepuff-secondary);
+  --accent-glow: var(--hufflepuff-glow);
+}
+
+/* =========================================================
+   SCROLLBAR — LUXURY TOUCH
+========================================================= */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--hogwarts-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    var(--hogwarts-gold),
+    var(--hogwarts-gold-dark)
+  );
+  border-radius: 6px;
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+}

@@ -1,0 +1,151 @@
+.loader-root {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top, rgba(255,255,255,0.06), transparent 45%),
+    linear-gradient(180deg, #050814, #0b132b 45%, #02030a);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Cinzel", serif;
+  color: #f2f2f2;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Ambient Fog / Grain */
+.fog-layer {
+  position: absolute;
+  inset: 0;
+  background: url("https://grainy-gradients.vercel.app/noise.svg");
+  opacity: 0.08;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+/* Content */
+.loader-content {
+  text-align: center;
+  z-index: 2;
+}
+
+/* Sign */
+.sign {
+  margin-bottom: 32px;
+}
+
+.sign-main {
+  font-size: 5.2rem;
+  color: #d4af37; /* antique gold */
+  letter-spacing: 6px;
+  text-shadow:
+    0 0 25px rgba(212,175,55,0.25),
+    0 0 60px rgba(212,175,55,0.15);
+  animation: signGlow 4s ease-in-out infinite;
+}
+
+@keyframes signGlow {
+  0%, 100% { opacity: 0.9; }
+  50% { opacity: 1; }
+}
+
+.sign-sub {
+  display: block;
+  margin-top: 10px;
+  font-size: 1.1rem;
+  letter-spacing: 4px;
+  color: rgba(255,255,255,0.75);
+  animation: fadeSwap 3.5s ease forwards;
+}
+
+@keyframes fadeSwap {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Divider */
+.divider {
+  width: 140px;
+  height: 2px;
+  margin: 28px auto 0;
+  position: relative;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(212,175,55,0.95),
+    transparent
+  );
+}
+
+/* Train Silhouette */
+.train-silhouette {
+  width: 320px;
+  height: 64px;
+  margin: 0 auto 30px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255,255,255,0.18),
+    transparent
+  );
+  position: relative;
+  animation: trainPass 7s cubic-bezier(0.45, 0, 0.15, 1) infinite;
+}
+
+@keyframes trainPass {
+  0% {
+    transform: translateX(-140%);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(140%);
+    opacity: 0;
+  }
+}
+
+/* Smoke */
+.smoke {
+  position: absolute;
+  right: 50px;
+  top: -22px;
+  width: 70px;
+  height: 70px;
+  background: radial-gradient(
+    rgba(255,255,255,0.35),
+    transparent 70%
+  );
+  filter: blur(2px);
+  animation: smokeRise 4.5s ease-in-out infinite;
+}
+
+@keyframes smokeRise {
+  0% {
+    transform: translateY(0) scale(0.9);
+    opacity: 0.35;
+  }
+  100% {
+    transform: translateY(-45px) scale(1.15);
+    opacity: 0;
+  }
+}
+
+/* Loading Text */
+.loading-text {
+  font-size: 0.85rem;
+  letter-spacing: 5px;
+  color: rgba(255,255,255,0.55);
+  margin-top: 10px;
+}
+
+
+.sign {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

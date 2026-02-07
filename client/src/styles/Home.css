@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&display=swap');
+
+/* === Elite Wizarding World Color System === */
+:root {
+    /* Core */
+    --ink-900: #1a1a86;
+    --ink-800: #414182;
+    --ink-700: #141433;
+
+    /* Golds */
+    --gold-500: #ffd700;
+    --gold-600: #e6c200;
+    --gold-700: #b8860b;
+
+    /* Purples */
+    --amethyst-500: #7b2cff;
+    --amethyst-600: #5b21b6;
+    --plum-700: #3a0a4a;
+
+    /* Accents */
+    --emerald-500: #1fa774;
+    --scarlet-600: #8b1d18;
+
+    /* Parchment */
+    --parchment-100: #fff8dc;
+    --parchment-200: #f5deb3;
+}
+
+
+.ww-container {
+    background: #05050f;
+    color: white;
+    font-family: 'Cinzel', serif;
+    min-height: 100vh;
+}
+
+/* Top Bar */
+.ww-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 1.5rem;
+    background: linear-gradient(#05050f, #0a0a1f);
+}
+
+.ww-socials {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.ww-socials a {
+    color: rgba(255, 255, 255, 0.7);
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.ww-socials a:hover {
+    color: var(--gold-500);
+    transform: translateY(-2px);
+}
+
+.ww-actions {
+    display: flex;
+    gap: 0.7rem;
+    align-items: center;
+}
+
+.ww-search {
+    background: #1a1a2e;
+    border-radius: 20px;
+    padding: 0.3rem 0.7rem;
+}
+
+.ww-search input {
+    background: transparent;
+    border: none;
+    color: white;
+    outline: none;
+}
+
+.ww-login {
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+    border-radius: 20px;
+    padding: 0.3rem 1rem;
+}
+
+.ww-signup {
+    background: linear-gradient(135deg, var(--amethyst-600), var(--amethyst-500));
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: white;
+    border-radius: 999px;
+    padding: 0.35rem 1.2rem;
+    box-shadow: 0 10px 25px rgba(123, 44, 255, 0.35);
+}
+
+/* Header */
+.ww-header {
+    text-align: center;
+    padding: 1.5rem 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ww-logo {
+    font-size: 2.8rem;
+    background: linear-gradient(gold, #b8860b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem;
+}
+
+.ww-nav {
+    display: flex;
+    justify-content: center;
+    gap: 1.4rem;
+    font-size: 0.85rem;
+}
+
+.ww-nav a {
+    color: white;
+    text-decoration: none;
+    opacity: 0.85;
+}
+
+.ww-nav a:hover {
+    color: gold;
+}
+
+/* Hero */
+.ww-hero {
+    position: relative;
+    height: 420px;
+    background: url('/images/hero-harry.jpg') center/cover no-repeat;
+}
+
+.ww-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(88, 0, 90, 0.85), rgba(0, 0, 0, 0.4));
+}
+
+.ww-hero-content {
+    position: relative;
+    padding: 4rem;
+    max-width: 600px;
+}
+
+.ww-hero-content h2 {
+    font-size: 2.6rem;
+}
+
+.ww-hero-content button {
+    margin-top: 1.2rem;
+    padding: 0.9rem 2.6rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 215, 0, 0.55);
+    background: linear-gradient(135deg, #2b1900, var(--gold-700), var(--gold-500));
+    background-size: 200% 200%;
+    color: #fff;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 16px 40px rgba(255, 215, 0, 0.45);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background-position 0.6s ease;
+}
+
+.ww-hero-content button:hover {
+    transform: translateY(-3px) scale(1.04);
+    background-position: 100% 50%;
+    box-shadow: 0 22px 55px rgba(255, 215, 0, 0.6);
+}
+
+/* Cards */
+.ww-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+    padding: 4rem 2rem;
+}
+
+.ww-card {
+    background: linear-gradient(135deg, #f5deb3, #fff8dc);
+    color: #3b2f1c;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Footer */
+.ww-footer {
+    text-align: center;
+    padding: 2rem;
+    font-style: italic;
+    opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+    .ww-nav {
+        display: none;
+    }
+
+    .ww-hero-content {
+        padding: 2rem;
+    }
+}

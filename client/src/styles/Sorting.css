@@ -1,0 +1,92 @@
+.sorting-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle at top, rgba(255,255,255,0.05), transparent 50%),
+              linear-gradient(180deg, var(--hogwarts-bg), #05050f);
+  transition: background-color 1s ease;
+  padding: 20px;
+}
+
+/* House Reveal */
+.sorting-container.Gryffindor { background: var(--gryffindor-primary); }
+.sorting-container.Slytherin  { background: var(--slytherin-primary); }
+.sorting-container.Ravenclaw  { background: var(--ravenclaw-primary); }
+.sorting-container.Hufflepuff{ background: var(--hufflepuff-primary); }
+
+/* Quiz Box */
+.quiz-box {
+  max-width: 640px;
+  width: 100%;
+  padding: 45px;
+  border-radius: 16px;
+  background: var(--parchment-bg);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.7);
+  text-align: center;
+  animation: fadeIn 0.8s ease;
+}
+
+.sorting-title {
+  font-size: 2.4rem;
+  margin-bottom: 10px;
+}
+
+.progress {
+  font-size: 0.9rem;
+  opacity: 0.6;
+  margin-bottom: 25px;
+}
+
+.question-text {
+  font-size: 1.6rem;
+  margin-bottom: 35px;
+  color: #3e2723;
+}
+
+.options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.option-btn {
+  padding: 18px;
+  font-size: 1.1rem;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.5);
+  border: 2px solid rgba(62,39,35,0.3);
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.option-btn:hover {
+  transform: translateY(-4px);
+  background: linear-gradient(135deg, #c9a24d, #e6c97a);
+  border-color: #a8822c;
+}
+
+/* Result */
+.result-box {
+  text-align: center;
+  animation: zoomIn 1s ease;
+}
+
+.house-announce {
+  font-size: 4rem;
+  color: white;
+  letter-spacing: 4px;
+  text-shadow: 0 0 40px rgba(0,0,0,0.9);
+  margin-bottom: 40px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes zoomIn {
+  from { opacity: 0; transform: scale(0.7); }
+  to   { opacity: 1; transform: scale(1); }
+}

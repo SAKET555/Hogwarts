@@ -1,0 +1,23 @@
+{
+    "translation": {
+        "welcome": "Bienvenue sur Hogwarts Messenger",
+        "login_btn": "Connexion",
+        "signup_btn": "S'inscrire",
+        "email_placeholder": "Adresse Hibou (Email)",
+        "password_placeholder": "Sort Secret (Mot de passe)",
+        "name_placeholder": "Nom du Sorcier",
+        "sorting_hat_title": "Le Choixpeau magique demande...",
+        "sorting_result": "VOUS IRETE À... {{house}}!",
+        "common_room": "Salle Commune {{house}}",
+        "send_msg_placeholder": "Envoyer un message magique...",
+        "send_btn": "Envoyer",
+        "logout": "Déconnexion",
+        "profile": "Passeport Sorcier",
+        "wand": "Baguette",
+        "owl_post": "Poste de Hibou",
+        "open_mail": "Ouvrir le courrier",
+        "enter_chat": "Entrer dans le chat",
+        "daily_prophet": "La Gazette du Sorcier",
+        "read_btn": "Lire"
+    }
+}

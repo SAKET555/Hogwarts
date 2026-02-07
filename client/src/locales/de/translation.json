@@ -1,0 +1,23 @@
+{
+    "translation": {
+        "welcome": "Willkommen beim Hogwarts Messenger",
+        "login_btn": "Anmelden",
+        "signup_btn": "Registrieren",
+        "email_placeholder": "Eulenadresse (E-Mail)",
+        "password_placeholder": "Geheimzauber (Passwort)",
+        "name_placeholder": "Zauberer Name",
+        "sorting_hat_title": "Der Sprechende Hut fragt...",
+        "sorting_result": "DU KOMMST NACH... {{house}}!",
+        "common_room": "{{house}} Gemeinschaftsraum",
+        "send_msg_placeholder": "Sende eine magische Nachricht...",
+        "send_btn": "Senden",
+        "logout": "Ausloggen",
+        "profile": "Zauberpass",
+        "wand": "Zauberstab",
+        "owl_post": "Eulenpost",
+        "open_mail": "Post öffnen",
+        "enter_chat": "Chat betreten",
+        "daily_prophet": "Der Tagesprophet",
+        "read_btn": "Lesen"
+    }
+}
