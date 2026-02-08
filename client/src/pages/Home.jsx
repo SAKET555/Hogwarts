@@ -71,10 +71,19 @@ const Home = () => {
             {/* Hero Section */}
             <section className="ww-hero">
                 <div className="ww-overlay" />
-                <div className="ww-hero-content">
-                    <h2>Welcome Home, {user?.name || 'Young Wizard'}</h2>
-                    <p>The castle is alive. Messages await you.</p>
-                    <Link to="/chat"><button>Enter the Common Room</button></Link>
+                <div className="ww-hero-container">
+                    <div className="ww-hero-content">
+                        <h2>Welcome Home, {user?.name || 'Young Wizard'}</h2>
+                        <p>The castle is alive. Messages await you.</p>
+                        <Link to="/chat"><button>Enter the Common Room</button></Link>
+                    </div>
+                    <div className="ww-hero-right-image">
+                        <div className="ww-hero-showcase">
+                            <img src="https://images.unsplash.com/photo-1547756536-cde3673fa2e5?auto=format&fit=crop&q=80&w=800" alt="Hogwarts Exterior" className="ww-hero-img img-1" />
+                            <img src="/images/GreatHall.jpg" alt="Great Hall" className="ww-hero-img img-2" />
+                            <img src="/images/LibraryHogwarts.jpg" alt="Library" className="ww-hero-img img-3" />
+                        </div>
+                    </div>
                 </div>
             </section>
 

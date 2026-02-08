@@ -1,6 +1,7 @@
 import axios from 'axios';
+import { API_URLS } from '../config';
 
-const API_URL = 'http://localhost:3000/api/messages/';
+const API_URL = API_URLS.MESSAGES;
 
 const getMessages = async (roomId, token) => {
     const config = {

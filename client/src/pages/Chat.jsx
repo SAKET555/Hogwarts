@@ -5,8 +5,9 @@ import privateChatService from '../services/privateChatService';
 import io from 'socket.io-client';
 import { encryptMessage, decryptMessage } from '../utils/encryption';
 import '../styles/Chat.css';
+import API_BASE_URL from '../config';
 
-const ENDPOINT = 'http://localhost:3000';
+const ENDPOINT = API_BASE_URL;
 var socket, selectedChatCompare;
 
 const Chat = () => {

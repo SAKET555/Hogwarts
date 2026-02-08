@@ -1,6 +1,7 @@
 import axios from 'axios';
+import { API_URLS } from '../config';
 
-const API_URL = 'http://localhost:3000/api/chat';
+const API_URL = API_URLS.CHAT;
 
 // Get all users for private chat
 const getUsers = async (token) => {
