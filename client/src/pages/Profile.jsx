@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useUser } from '../contexts/UserContext';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { API_URLS } from '../config';
 import '../styles/Auth.css';
 
 const Profile = () => {
@@ -20,7 +21,7 @@ const Profile = () => {
 
     const handleDeleteAccount = async () => {
         try {
-            await axios.delete('http://localhost:3000/api/users/delete', {
+            await axios.delete(API_URLS.USERS + 'delete', {
                 headers: {
                     Authorization: `Bearer ${user.token}`,
                 },

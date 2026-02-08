@@ -18,13 +18,15 @@ const Signup = () => {
 
     const handleSignup = async (e) => {
         e.preventDefault();
+        console.log("🚀 Attempting signup...");
         try {
             const userData = await authService.register({ name, email, password });
+            console.log("✅ Signup successful!", userData);
             login(userData);
             navigate('/sorting');
         } catch (error) {
-            alert('Error registering');
-            console.error(error);
+            console.error("❌ Signup Error Details:", error.response?.data || error.message);
+            alert('Error registering: ' + (error.response?.data?.message || 'Please check your connection'));
         }
     };
 
