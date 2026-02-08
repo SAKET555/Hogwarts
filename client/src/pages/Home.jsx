@@ -78,6 +78,20 @@ const Home = () => {
                 </div>
             </section>
 
+            {/* Hagrid Welcome Section */}
+            <section className="hagrid-welcome-section">
+                <div className="hagrid-content">
+                    <div className="hagrid-text">
+                        <h2>Welcome to Hogwarts!</h2>
+                        <p>"Yer a wizard, {user?.name || 'friend'}!"</p>
+                        <p className="hagrid-quote">— Hagrid</p>
+                    </div>
+                    <div className="hagrid-image-container">
+                        <img src="/images/hagrid.png" alt="Hagrid" className="hagrid-img" />
+                    </div>
+                </div>
+            </section>
+
             {/* Feature Cards (Same features, new layout) */}
             <section className="ww-cards">
                 <div className="ww-card">

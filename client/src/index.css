@@ -5,11 +5,14 @@
   /* ===============================
      CORE HOGWARTS ATMOSPHERE
   =============================== */
-  --hogwarts-bg: #0b0e1a;            /* Deep night blue-black */
-  --hogwarts-bg-soft: #15182b;       /* Elevated surfaces */
-  --hogwarts-dark: #07080f;           /* True dark */
+  --hogwarts-bg: #0b0e1a;
+  /* Deep night blue-black */
+  --hogwarts-bg-soft: #15182b;
+  /* Elevated surfaces */
+  --hogwarts-dark: #07080f;
+  /* True dark */
   --hogwarts-text: #f3f3f3;
-  --hogwarts-text-muted: rgba(243,243,243,0.65);
+  --hogwarts-text-muted: rgba(243, 243, 243, 0.65);
 
   /* Signature Gold */
   --hogwarts-gold: #d4af37;
@@ -17,7 +20,7 @@
   --hogwarts-gold-dark: #a8822c;
 
   /* Accents */
-  --accent-glow: 0 0 18px rgba(212,175,55,0.45);
+  --accent-glow: 0 0 18px rgba(212, 175, 55, 0.45);
 
   /* ===============================
      HOUSE PALETTES
@@ -26,22 +29,22 @@
   /* Gryffindor — Courage */
   --gryffindor-primary: #740001;
   --gryffindor-secondary: #eeba30;
-  --gryffindor-glow: rgba(238,186,48,0.45);
+  --gryffindor-glow: rgba(238, 186, 48, 0.45);
 
   /* Slytherin — Ambition */
   --slytherin-primary: #1a472a;
   --slytherin-secondary: #c0c0c0;
-  --slytherin-glow: rgba(26,71,42,0.45);
+  --slytherin-glow: rgba(26, 71, 42, 0.45);
 
   /* Ravenclaw — Wisdom */
   --ravenclaw-primary: #0e1a40;
   --ravenclaw-secondary: #946b2d;
-  --ravenclaw-glow: rgba(148,107,45,0.45);
+  --ravenclaw-glow: rgba(148, 107, 45, 0.45);
 
   /* Hufflepuff — Loyalty */
   --hufflepuff-primary: #ecb939;
   --hufflepuff-secondary: #372e29;
-  --hufflepuff-glow: rgba(236,185,57,0.45);
+  --hufflepuff-glow: rgba(236, 185, 57, 0.45);
 
   /* ===============================
      PARCHMENT UI
@@ -49,7 +52,7 @@
   --parchment-bg: #f8f5e6;
   --parchment-bg-soft: #f1ead6;
   --parchment-text: #3e3e3e;
-  --parchment-shadow: inset 0 0 45px rgba(139,69,19,0.25);
+  --parchment-shadow: inset 0 0 45px rgba(139, 69, 19, 0.25);
 
   /* ===============================
      ROMANTIC THEME
@@ -58,7 +61,7 @@
   --romantic-secondary: #f8bbd0;
   --romantic-bg: #fff0f5;
   --romantic-text: #6a0f3b;
-  --romantic-glow: rgba(194,24,91,0.4);
+  --romantic-glow: rgba(194, 24, 91, 0.4);
 
   /* ===============================
      TYPOGRAPHY
@@ -74,8 +77,8 @@
   --transition-base: 0.35s ease;
   --transition-slow: 0.6s ease;
 
-  --shadow-soft: 0 10px 30px rgba(0,0,0,0.4);
-  --shadow-deep: 0 25px 60px rgba(0,0,0,0.6);
+  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.4);
+  --shadow-deep: 0 25px 60px rgba(0, 0, 0, 0.6);
 }
 
 /* =========================================================
@@ -94,7 +97,12 @@ body {
 /* =========================================================
    HEADINGS
 ========================================================= */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-main);
   color: var(--hogwarts-gold);
   letter-spacing: var(--letter-spacing-wide);
@@ -113,6 +121,9 @@ body.Romantic {
   --hogwarts-bg: var(--romantic-bg);
   --parchment-bg: #fff5fa;
   --accent-glow: var(--romantic-glow);
+  --theme-section-bg: linear-gradient(135deg, #d4c5e0 0%, #c9b8d9 100%);
+  --theme-text: var(--romantic-text);
+  --theme-border: rgba(194, 24, 91, 0.3);
 }
 
 /* Houses */
@@ -120,24 +131,43 @@ body.Gryffindor {
   --active-primary: var(--gryffindor-primary);
   --active-secondary: var(--gryffindor-secondary);
   --accent-glow: var(--gryffindor-glow);
+  --theme-section-bg: linear-gradient(135deg, #740001 0%, #3e0000 100%);
+  --theme-text: #fff;
+  --theme-border: var(--gryffindor-secondary);
 }
 
 body.Slytherin {
   --active-primary: var(--slytherin-primary);
   --active-secondary: var(--slytherin-secondary);
   --accent-glow: var(--slytherin-glow);
+  --theme-section-bg: linear-gradient(135deg, #1a472a 0%, #0d2a19 100%);
+  --theme-text: #fff;
+  --theme-border: var(--slytherin-secondary);
 }
 
 body.Ravenclaw {
   --active-primary: var(--ravenclaw-primary);
   --active-secondary: var(--ravenclaw-secondary);
   --accent-glow: var(--ravenclaw-glow);
+  --theme-section-bg: linear-gradient(135deg, #0e1a40 0%, #050a20 100%);
+  --theme-text: #fff;
+  --theme-border: var(--ravenclaw-secondary);
 }
 
 body.Hufflepuff {
   --active-primary: var(--hufflepuff-primary);
   --active-secondary: var(--hufflepuff-secondary);
   --accent-glow: var(--hufflepuff-glow);
+  --theme-section-bg: linear-gradient(135deg, #ecb939 0%, #d4a017 100%);
+  --theme-text: #372e29;
+  --theme-border: var(--hufflepuff-secondary);
+}
+
+/* Default/Hogwarts */
+body.Hogwarts {
+  --theme-section-bg: linear-gradient(135deg, #1a1a33 0%, #0a0a1f 100%);
+  --theme-text: #fff;
+  --theme-border: var(--hogwarts-gold);
 }
 
 /* =========================================================
@@ -152,11 +182,9 @@ body.Hufflepuff {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(
-    180deg,
-    var(--hogwarts-gold),
-    var(--hogwarts-gold-dark)
-  );
+  background: linear-gradient(180deg,
+      var(--hogwarts-gold),
+      var(--hogwarts-gold-dark));
   border-radius: 6px;
-  box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
 }
