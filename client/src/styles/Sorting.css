@@ -1,92 +1,783 @@
+:root {
+  --gryffindor-red: #AE0001;
+  --gryffindor-gold: #D3A625;
+  --slytherin-green: #2A623D;
+  --slytherin-silver: #AAAAAA;
+  --ravenclaw-blue: #222F5B;
+  --ravenclaw-bronze: #946B2D;
+  --hufflepuff-yellow: #FFDB00;
+  --hufflepuff-black: #000000;
+  
+  --hogwarts-bg: linear-gradient(135deg, #0a0a2a 0%, #1a1a3a 50%, #2a2a4a 100%);
+  --parchment-bg: #F5E6CA;
+  --gryffindor-primary: linear-gradient(135deg, var(--gryffindor-red) 0%, #740001 100%);
+  --slytherin-primary: linear-gradient(135deg, var(--slytherin-green) 0%, #1a472a 100%);
+  --ravenclaw-primary: linear-gradient(135deg, var(--ravenclaw-blue) 0%, #0e1a40 100%);
+  --hufflepuff-primary: linear-gradient(135deg, var(--hufflepuff-yellow) 0%, #ecb939 100%);
+}
+
 .sorting-container {
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: radial-gradient(circle at top, rgba(255,255,255,0.05), transparent 50%),
-              linear-gradient(180deg, var(--hogwarts-bg), #05050f);
-  transition: background-color 1s ease;
+  background: var(--hogwarts-bg);
+  background-image: 
+    radial-gradient(circle at 20% 80%, rgba(174, 0, 1, 0.1) 0%, transparent 40%),
+    radial-gradient(circle at 80% 20%, rgba(42, 98, 61, 0.1) 0%, transparent 40%),
+    radial-gradient(circle at 20% 20%, rgba(34, 47, 91, 0.1) 0%, transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba(255, 219, 0, 0.1) 0%, transparent 40%);
+  color: white;
   padding: 20px;
+  position: relative;
+  overflow: hidden;
+  transition: background 1.5s ease;
+  font-family: 'Cinzel', 'Georgia', serif;
 }
 
-/* House Reveal */
-.sorting-container.Gryffindor { background: var(--gryffindor-primary); }
-.sorting-container.Slytherin  { background: var(--slytherin-primary); }
-.sorting-container.Ravenclaw  { background: var(--ravenclaw-primary); }
-.sorting-container.Hufflepuff{ background: var(--hufflepuff-primary); }
+.sorting-container.Gryffindor { 
+  background: var(--gryffindor-primary);
+  animation: gryffindorReveal 2s ease;
+}
+.sorting-container.Slytherin { 
+  background: var(--slytherin-primary);
+  animation: slytherinReveal 2s ease;
+}
+.sorting-container.Ravenclaw { 
+  background: var(--ravenclaw-primary);
+  animation: ravenclawReveal 2s ease;
+}
+.sorting-container.Hufflepuff { 
+  background: var(--hufflepuff-primary);
+  animation: hufflepuffReveal 2s ease;
+}
 
-/* Quiz Box */
-.quiz-box {
-  max-width: 640px;
+@keyframes gryffindorReveal {
+  from { background: var(--hogwarts-bg); }
+  to { background: var(--gryffindor-primary); }
+}
+
+@keyframes slytherinReveal {
+  from { background: var(--hogwarts-bg); }
+  to { background: var(--slytherin-primary); }
+}
+
+@keyframes ravenclawReveal {
+  from { background: var(--hogwarts-bg); }
+  to { background: var(--ravenclaw-primary); }
+}
+
+@keyframes hufflepuffReveal {
+  from { background: var(--hogwarts-bg); }
+  to { background: var(--hufflepuff-primary); }
+}
+
+.particle-background {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  padding: 45px;
-  border-radius: 16px;
-  background: var(--parchment-bg);
-  box-shadow: 0 30px 80px rgba(0,0,0,0.7);
-  text-align: center;
-  animation: fadeIn 0.8s ease;
+  height: 100%;
+  pointer-events: none;
 }
 
-.sorting-title {
-  font-size: 2.4rem;
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.4;
+  animation: float 20s infinite linear;
+  filter: blur(1px);
+}
+
+@keyframes float {
+  0% { transform: translateY(100vh) rotate(0deg); }
+  100% { transform: translateY(-100vh) rotate(360deg); }
+}
+
+.sorting-hat-container {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  z-index: 100;
+}
+
+.sorting-hat {
+  position: relative;
+  width: 120px;
+  height: 100px;
+  animation: hatFloat 6s infinite ease-in-out;
+}
+
+@keyframes hatFloat {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-10px) rotate(2deg); }
+}
+
+.hat-brim {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 30px;
+  background: #8B4513;
+  border-radius: 50%;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.hat-point {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 70px;
+  background: #A0522D;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  border-radius: 5px;
+}
+
+.hat-face {
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.hat-eyes {
+  width: 60px;
+  height: 20px;
+  background: #5D4037;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  animation: hatThink 3s infinite alternate;
+}
+
+@keyframes hatThink {
+  0%, 100% { width: 60px; }
+  50% { width: 40px; }
+}
+
+.hat-mouth {
+  width: 40px;
+  height: 10px;
+  background: #5D4037;
+  border-radius: 5px;
+  animation: hatTalk 2s infinite alternate;
+}
+
+@keyframes hatTalk {
+  0%, 100% { height: 10px; }
+  50% { height: 15px; }
+}
+
+.hat-shadow {
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 20px;
+  background: rgba(0,0,0,0.3);
+  border-radius: 50%;
+  filter: blur(5px);
+}
+
+.progress-container {
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  max-width: 600px;
+  z-index: 10;
+}
+
+.progress-bar {
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+  overflow: hidden;
   margin-bottom: 10px;
 }
 
-.progress {
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--gryffindor-red), var(--slytherin-green), var(--ravenclaw-blue), var(--hufflepuff-yellow));
+  transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.progress-text {
+  text-align: center;
   font-size: 0.9rem;
-  opacity: 0.6;
-  margin-bottom: 25px;
+  letter-spacing: 2px;
+  color: rgba(255, 255, 255, 0.8);
 }
 
-.question-text {
-  font-size: 1.6rem;
-  margin-bottom: 35px;
-  color: #3e2723;
+.quiz-container {
+  width: 90%;
+  max-width: 800px;
+  position: relative;
 }
 
-.options {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+.magic-circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120%;
+  height: 120%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: pulse 4s infinite alternate;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.3; transform: translate(-50%, -50%) scale(1); }
+  100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1.1); }
+}
+
+.quiz-box {
+  background: rgba(10, 10, 30, 0.9);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  padding: 40px;
+  position: relative;
+  backdrop-filter: blur(10px);
+  box-shadow: 
+    0 0 50px rgba(174, 0, 1, 0.2),
+    0 0 100px rgba(42, 98, 61, 0.2),
+    inset 0 0 50px rgba(0, 0, 0, 0.5);
+}
+
+.ceremony-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.ceremony-title {
+  font-size: 2.5rem;
+  background: linear-gradient(45deg, var(--gryffindor-gold), #fff, var(--slytherin-silver));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 10px;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.house-icons {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 15px;
+}
+
+.house-icon {
+  font-size: 1.8rem;
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.house-icon:hover {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+.title-spacer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 40px 0;
   gap: 20px;
 }
 
-.option-btn {
-  padding: 18px;
-  font-size: 1.1rem;
-  border-radius: 10px;
-  background: rgba(255,255,255,0.5);
-  border: 2px solid rgba(62,39,35,0.3);
-  cursor: pointer;
-  transition: all 0.25s ease;
+.spacer-line {
+  height: 1px;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(255, 255, 255, 0.5), 
+    transparent);
+  flex: 1;
+  max-width: 150px;
 }
 
-.option-btn:hover {
-  transform: translateY(-4px);
-  background: linear-gradient(135deg, #c9a24d, #e6c97a);
-  border-color: #a8822c;
+.spacer-ornament {
+  color: var(--gryffindor-gold);
+  font-size: 1.5rem;
+  animation: spin 10s linear infinite;
 }
 
-/* Result */
-.result-box {
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.question-header {
+  margin-bottom: 40px;
   text-align: center;
-  animation: zoomIn 1s ease;
 }
 
-.house-announce {
-  font-size: 4rem;
-  color: white;
-  letter-spacing: 4px;
-  text-shadow: 0 0 40px rgba(0,0,0,0.9);
+.question-number {
+  font-size: 1rem;
+  color: var(--gryffindor-gold);
+  margin-bottom: 10px;
+  letter-spacing: 3px;
+  opacity: 0.8;
+}
+
+.question-text {
+  font-size: 1.8rem;
+  line-height: 1.4;
+  color: #fff;
+  font-weight: 300;
+}
+
+.options-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
   margin-bottom: 40px;
 }
 
-/* Animations */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
+.option-btn {
+  position: relative;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid var(--option-color);
+  border-radius: 15px;
+  padding: 25px 20px;
+  color: #fff;
+  font-size: 1.1rem;
+  font-family: 'Cinzel', serif;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  backdrop-filter: blur(5px);
+}
+
+.option-glow {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, var(--option-color), transparent);
+  transition: left 0.6s;
+}
+
+.option-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.5),
+    0 0 30px var(--option-color);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.option-btn:hover .option-glow {
+  left: 100%;
+}
+
+.option-house {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 0.8rem;
+  color: var(--option-color);
+  font-weight: bold;
+  opacity: 0.7;
+}
+
+.ceremony-quote {
+  text-align: center;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1rem;
+  margin-top: 30px;
+}
+
+.result-container {
+  width: 90%;
+  max-width: 800px;
+  position: relative;
+  animation: zoomIn 1s ease;
 }
 
 @keyframes zoomIn {
-  from { opacity: 0; transform: scale(0.7); }
-  to   { opacity: 1; transform: scale(1); }
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.house-reveal-animation {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.house-banner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  animation: bannerExpand 2s ease-out;
+}
+
+@keyframes bannerExpand {
+  0% { transform: scale(0); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.house-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+  animation: glowPulse 3s infinite alternate;
+}
+
+@keyframes glowPulse {
+  0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.2; }
+  100% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.4; }
+}
+
+.confetti-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.confetti {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  opacity: 0;
+  animation: confettiFall 3s var(--delay) forwards;
+  border-radius: 2px;
+}
+
+@keyframes confettiFall {
+  0% {
+    transform: translateY(-100px) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+.result-box {
+  background: rgba(10, 10, 30, 0.95);
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  border-radius: 30px;
+  padding: 50px;
+  position: relative;
+  z-index: 1;
+  backdrop-filter: blur(20px);
+  text-align: center;
+  box-shadow: 
+    0 0 100px rgba(255, 255, 255, 0.3),
+    inset 0 0 100px rgba(0, 0, 0, 0.7);
+}
+
+.house-emblem {
+  margin-bottom: 30px;
+}
+
+.emblem-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  animation: emblemSpin 10s linear infinite;
+}
+
+@keyframes emblemSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.emblem-mascot {
+  font-size: 3.5rem;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+}
+
+.house-announce {
+  margin-bottom: 20px;
+}
+
+.house-name {
+  font-size: 4rem;
+  background: linear-gradient(45deg, 
+    var(--gryffindor-gold), 
+    #fff, 
+    var(--slytherin-silver)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+  display: block;
+  animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.house-subtitle {
+  font-size: 4rem;
+  color: #fff;
+  display: block;
+}
+
+.house-quote {
+  font-size: 1.3rem;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 30px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+.house-traits {
+  margin: 40px 0;
+}
+
+.traits-list {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.trait {
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 25px;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+.trait:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.house-description {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 25px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 15px;
+  border-left: 4px solid rgba(255, 255, 255, 0.3);
+}
+
+.house-description p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.continue-btn {
+  position: relative;
+  background: linear-gradient(45deg, var(--gryffindor-red), var(--slytherin-green));
+  border: none;
+  border-radius: 50px;
+  padding: 20px 60px;
+  color: white;
+  font-size: 1.3rem;
+  font-family: 'Cinzel', serif;
+  letter-spacing: 3px;
+  cursor: pointer;
+  transition: all 0.4s;
+  display: block;
+  margin: 40px auto 0;
+  overflow: hidden;
+}
+
+.continue-btn::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, 
+    var(--gryffindor-gold), 
+    var(--ravenclaw-blue), 
+    var(--gryffindor-gold)
+  );
+  z-index: -1;
+  border-radius: 52px;
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.continue-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 50px rgba(255, 255, 255, 0.5);
+}
+
+.continue-btn:hover::before {
+  opacity: 1;
+  animation: borderGlow 2s linear infinite;
+}
+
+@keyframes borderGlow {
+  0% { filter: hue-rotate(0deg); }
+  100% { filter: hue-rotate(360deg); }
+}
+
+.btn-sparkles {
+  display: inline-block;
+  margin: 0 20px;
+  animation: sparkle 1s infinite alternate;
+}
+
+@keyframes sparkle {
+  0% { opacity: 0.3; }
+  100% { opacity: 1; }
+}
+
+.hat-deciding, .hat-announcing {
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.deciding-text, .announcing-text {
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 15px 30px;
+  border-radius: 20px;
+  font-size: 1.2rem;
+  position: relative;
+  animation: bubbleFloat 4s infinite ease-in-out;
+}
+
+@keyframes bubbleFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.deciding-glow {
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  right: -20px;
+  bottom: -20px;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  border-radius: 40px;
+  animation: decidingPulse 2s infinite alternate;
+}
+
+@keyframes decidingPulse {
+  0% { opacity: 0.2; }
+  100% { opacity: 0.5; }
+}
+
+.announcing-flash {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+  animation: flash 0.5s ease-out;
+}
+
+@keyframes flash {
+  0% { opacity: 1; transform: translate(-50%, -50%) scale(0); }
+  100% { opacity: 0; transform: translate(-50%, -50%) scale(1); }
+}
+
+@media (max-width: 768px) {
+  .options-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .ceremony-title, .house-name {
+    font-size: 2rem;
+  }
+  
+  .question-text {
+    font-size: 1.4rem;
+  }
+  
+  .sorting-hat-container {
+    top: 10px;
+    right: 10px;
+  }
+  
+  .sorting-hat {
+    width: 80px;
+    height: 70px;
+  }
+  
+  .house-icons {
+    gap: 15px;
+  }
+  
+  .house-icon {
+    font-size: 1.4rem;
+  }
+  
+  .title-spacer {
+    margin: 30px 0;
+  }
+  
+  .traits-list {
+    gap: 10px;
+  }
+  
+  .trait {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .quiz-box, .result-box {
+    padding: 25px;
+  }
+  
+  .continue-btn {
+    padding: 15px 30px;
+    font-size: 1rem;
+  }
+  
+  .house-quote {
+    font-size: 1.1rem;
+  }
+  
+  .title-spacer {
+    margin: 20px 0;
+    gap: 10px;
+  }
+  
+  .spacer-line {
+    max-width: 80px;
+  }
 }
