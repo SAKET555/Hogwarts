@@ -7,6 +7,7 @@ import Loader from './components/Loader';
 import BackgroundMusic from './components/BackgroundMusic';
 import Chat from './pages/Chat';
 import OwlPost from './pages/OwlPost';
+import MaraudersMap from './pages/MaraudersMap';
 import './index.css';
 
 import Home from './pages/Home';
@@ -43,6 +44,7 @@ function App() {
             <Route path="/profile" element={<Profile />} />
             <Route path="/chat" element={<Chat />} />
             <Route path="/owl-post" element={<OwlPost />} />
+            <Route path="/marauders-map" element={<MaraudersMap />} />
           </Routes>
         </div>
       </Router>

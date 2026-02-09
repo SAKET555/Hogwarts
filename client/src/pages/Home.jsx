@@ -63,6 +63,7 @@ const Home = () => {
                 <nav className="ww-nav">
                     <Link to="/owl-post">OWL POST</Link>
                     <Link to="/chat">COMMON ROOM</Link>
+                    <Link to="/marauders-map">MARAUDER'S MAP</Link>
                     <Link to="/profile">PROFILE</Link>
                     <Link to="/wand">WAND</Link>
                 </nav>
@@ -75,7 +76,10 @@ const Home = () => {
                     <div className="ww-hero-content">
                         <h2>Welcome Home, {user?.name || 'Young Wizard'}</h2>
                         <p>The castle is alive. Messages await you.</p>
-                        <Link to="/chat"><button>Enter the Common Room</button></Link>
+                        <div style={{ display: 'flex', gap: '10px' }}>
+                            <Link to="/chat"><button>Enter the Common Room</button></Link>
+                            <Link to="/marauders-map"><button className="magical-btn">Reveal the Map</button></Link>
+                        </div>
                     </div>
                     <div className="ww-hero-right-image">
                         <div className="ww-hero-showcase">

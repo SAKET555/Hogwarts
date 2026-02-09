@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useUser } from '../contexts/UserContext';
 import authService from '../services/authService';
+import Snitch from '../components/Snitch';
 import '../styles/Auth.css';
 
 const Login = () => {
@@ -28,6 +29,7 @@ const Login = () => {
     return (
         <div className="auth-container">
             <div className="auth-box parchment">
+                <Snitch />
                 <h2>{t('welcome')}</h2>
                 <form onSubmit={handleLogin}>
                     <div className="input-group">
