@@ -29,7 +29,7 @@ const Login = () => {
     return (
         <div className="auth-container">
             <div className="auth-box parchment">
-                <Snitch />
+                <Snitch compact={true} />
                 <h2>{t('welcome')}</h2>
                 <form onSubmit={handleLogin}>
                     <div className="input-group">
