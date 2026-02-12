@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useUser } from '../contexts/UserContext';
+import WizardTypes from '../components/WizardTypes';
 import '../styles/Home.css';
 
 const Home = () => {
@@ -102,7 +103,7 @@ const Home = () => {
                 </div>
             </section>
 
-
+            <WizardTypes />
 
             <footer className="ww-footer">
                 I solemnly swear that I am up to no good.
