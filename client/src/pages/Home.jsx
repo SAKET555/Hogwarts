@@ -42,10 +42,7 @@ const Home = () => {
                     </a>
                 </div>
                 <div className="ww-actions">
-                    <div className="ww-search">
-                        <input placeholder="Search" />
-                        <span>🔍</span>
-                    </div>
+
                     {user ? (
                         <button className="ww-login" onClick={handleLogout}>LOGOUT</button>
                     ) : (
@@ -105,21 +102,7 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* Feature Cards (Same features, new layout) */}
-            <section className="ww-cards">
-                <div className="ww-card">
-                    <h3>🦉 Owl Post</h3>
-                    <p>Send and receive enchanted messages.</p>
-                </div>
-                <div className="ww-card">
-                    <h3>🏰 Common Room</h3>
-                    <p>Chat with fellow house members.</p>
-                </div>
-                <div className="ww-card">
-                    <h3>🪄 Wand</h3>
-                    <p>Customize your magical identity.</p>
-                </div>
-            </section>
+
 
             <footer className="ww-footer">
                 I solemnly swear that I am up to no good.
